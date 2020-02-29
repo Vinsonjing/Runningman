@@ -1,0 +1,40 @@
+<view class='container'>
+  <view wx:if="{{tulist.coverpath.length>0}}">
+    <image class='head-image' src="{{tulist.coverpath}}"></image>
+  </view>
+  <view wx:else>
+    <image class='head-image' src="/images/post/1.png"></image>
+  </view>
+  <view  class='author-date'>
+    <view  class="head" wx:if="{{tulist.avatar.length>0}}">
+      <image class='avatar' src="{{tulist.avatar}}"></image>
+      </view>
+      <view  class="head" wx:else>
+        <image class='avatar' src="/images/post/1.png"></image>
+      </view>
+
+      <text class='author'>{{tulist.nick_name}}</text>
+      <text class='const-text'>发表于</text>
+      <text class='date'>{{tulist.date}}</text>
+    </view>
+    <text class='title'>{{tulist.task_name}}</text>
+    <text class='price'>￥{{tulist.task_reward}}</text>
+    <!-- 收藏&分享 -->
+    <view class='tool'>
+      <view class='circle-img'>
+        <image wx:if="{{collected}}" catchtap="onCollectionTap" src="/images/icon/collection.png"></image>
+        <image wx:else catchtap="onCollectionTap" src='/images/icon/collection-anti.png'></image>
+        <image catchtap='onShareTap' class='share-img' src='/images/icon/share.png'></image>
+      </view>
+      <view class='horizon'></view>
+    </view>
+    <!-- 内容 -->
+    <text class='detail'>{{tulist.task_content}}</text>
+
+    <!-- 立即下单 -->
+    <view wx:if="{{tulist.state==1}}">
+    </view>
+    <view wx:else>
+      <button class="ar_book" bindtap="bookTap" data-task_id="{{tulist.task_id}}">立即下单</button>
+    </view>
+  </view>

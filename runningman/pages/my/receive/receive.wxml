@@ -1,0 +1,49 @@
+ 
+<view>
+<view class="item">
+    <view class="name">我的接单</view>
+  </view>
+  <!-- content -->
+  <view class="nav_section">
+    <block wx:for="{{tulist}}" wx:key="user_id">
+      <view class="nav_section_items">
+        <!--image-->
+        
+        <view  wx:if="{{item.coverpath.length>0}}">
+          <view class="section_image" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+            <image src="{{item.coverpath}}" mode="aspectFill"></image>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="section_image" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+            <image src="/images/post/1.png" mode="aspectFill"></image>
+          </view>
+        </view>
+        <!--content-->
+        <view class="section_cont" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+          <view class="section_cont_sub">
+            <text>{{item.subject}}</text>
+          </view>
+          <view class="section_cont_add">
+            <text>送达地址：{{item.address_to}}</text>
+          </view>
+          <view class="section_cont_add">
+            <text>前往地址：{{item.address_from}}</text>
+          </view>
+          <view class="section_cont_price">
+            价格：{{item.task_reward}}
+            <view wx:if="{{item.state==1}}">
+              <view class="section_cont_price">已卖出</view>
+            </view>
+            <view wx:else>
+              <view class="section_cont_price">等待接单</view>
+            </view>
+          </view>
+
+          <view>{{item.task_content}}</view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>

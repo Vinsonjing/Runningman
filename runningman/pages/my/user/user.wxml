@@ -1,0 +1,40 @@
+<!--user.wxml-->
+<view class="container">
+  <view class="user_base_info">
+    <view class="user_avatar">
+      <view wx:if="{{user.avatar.length>0}}">
+        <image src="{{user.avatar}}" style="width:70px;height:70px;"></image>
+      </view>
+      <view wx:else>
+        <image src="/images/avatar/1.png" style="width:70px;height:70px;"></image>
+      </view>
+    </view>
+    <view class="user_info">
+      <text>
+        昵称：{{user.nick_name}}
+        电话：{{user.user_id}}
+      </text>
+    </view>
+  </view>
+   <button bindtap="alterinfor"  data-user_id="{{user.user_id}}"  style='margin-right:5px;margin-left:5px'>修改信息</button>
+  <view class="user_addr_manage">
+    <view class="user_addr_title">【实名认证】</view>
+   
+      <block wx:if="{{user.user_name.length>0&&user.identification.length>0&&user.identification.length>0}}">
+        <view class="form_group">
+          <text>真实姓名：{{user.user_name}}</text>
+        </view>
+        <view class="form_group">
+          <text>身份证号：{{user.identification}}</text>
+        </view>
+        <view class="form_group">
+          <text>您的银行账号：{{user.payee}}</text>
+          </view>
+      </block>
+      <block wx:else>
+        <button bindtap="identify"  data-user_id="{{user.user_id}}"  style='margin-right:5px;margin-left:5px'>点击进行实名认证</button>
+      </block>
+      </view>
+
+
+  </view>

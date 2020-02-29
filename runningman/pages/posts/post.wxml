@@ -1,0 +1,95 @@
+ <!-- 地区和搜索栏 -->
+<view>
+  <view class="search">
+    <picker mode='region' bindchange="changeRegion">
+      <view>{{region}}</view>
+    </picker>
+    <image class="down" src="../../images/icon/arrow_down.png"></image>
+    <view class="search-bar">
+      <view class="search-bar-warper">
+        <icon type="search" size="20" />
+        <input bindchange="search" placeholder="请输入关键词" />
+      </view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <swiper catchtap='onSwiperTap' autoplay="true" indicator-dots="true" interval="5000">
+    <swiper-item>
+      <image src="/images/wx.png" data-task_id="3"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/vr.png" data-task_id="1"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/iqiyi.png" data-task_id="2"></image>
+    </swiper-item>
+  </swiper>
+
+
+  <!-- content -->
+  <view class="nav_section">
+     <block wx:for="{{tulist}}" wx:key="task_id">
+      <view class="header">
+        <view class="post-author-date">
+          <view class="head" wx:if="{{item.avatar.length>0}}">
+            <image class="post-author" src="{{item.avatar}}"></image>
+          </view>
+          <view  class="head" wx:else>
+            <image class="post-author" src="/images/avatar/1.png"></image>
+          </view>
+          <text class="post-date">{{item.nick_name}}</text>
+          <text class="post-date">{{item.date}}</text>
+        </view>
+        <view class="post-like">
+          <image class="post-like-image" src="/images/icon/chat.png"></image>
+          <text class="post-like-font">{{item.collection}}</text>
+          <image class="post-like-image" src="/images/icon/view.png"></image>
+          <text class="post-like-font">{{item.reading}}</text>
+        </view>
+      </view>
+      <view class="nav_section_items">
+        <!--image-->
+        <view wx:if="{{item.coverpath.length>0}}">
+          <view class="section_image" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+            <image src="{{item.coverpath}}" mode="aspectFill"></image>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="section_image" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+            <image src="/images/wx.png" mode="aspectFill"></image>
+          </view>
+        </view>
+        <!--content-->
+        <view class="section_cont" bindtap="navigateDetail" data-task_id="{{item.task_id}}">
+          <view class="section_cont_sub">
+            <text>{{item.task_name}}</text>
+          </view>
+          <view class="section_cont_add">
+            <text>送达地址：{{item.address_to}}</text>
+          </view>
+          <view class="section_cont_add">
+            <text>前往地址：{{item.address_from}}</text>
+          </view>
+          <view class="section_cont_price">
+            价格：{{item.task_reward}}
+            <view wx:if="{{item.state==1}}">
+              <view class="section_cont_price">已卖出</view>
+            </view>
+            <view wx:else>
+              <view class="section_cont_price">等待接单</view>
+            </view>
+          </view>
+          <view>{{item.task_content}}</view>
+        </view>
+        <!--book-->
+        <view wx:if="{{item.state==1}}">
+        </view>
+        <view wx:else>
+          <view class="section_book" bindtap="bookTap" data-task_id="{{item.task_id}}">
+            <text>下单</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

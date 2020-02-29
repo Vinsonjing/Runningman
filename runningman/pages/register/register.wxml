@@ -1,0 +1,19 @@
+ <view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="row">
+      <text>电话号码：</text>
+      <input type="text" name="user_id" placeholder="请输入电话号码" value="{{user_id}}" />
+    </view>
+    <view class="row">
+      <text>密码：</text>
+      <input type="password" name="password" placeholder="请输入密码" value="{{password}}" />
+    </view>
+    <view class="row">
+      <text>昵称：</text>
+      <input type="text" name="nick_name" placeholder="请输入昵称" value="{{nick_name}}" />
+    </view>
+    <view class="row">
+      <button type="primary" form-type="submit">注册</button>
+    </view>
+  </form>
+</view>

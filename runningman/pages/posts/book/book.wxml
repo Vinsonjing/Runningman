@@ -1,0 +1,71 @@
+ <view class='container edit_wrap'>
+  <form bindsubmit="formSubmit" bindreset="formReset" data-task_id="{{tulist.task_id}}">
+    <view class="form_group">
+      <text>任务名称：{{tulist.task_name}}</text>
+    </view>
+    <text class="txt">任务描述:{{tulist.task_content}}</text>
+    <view class="line"></view>
+    <view class="form_group">
+      <text>酬金：￥{{tulist.task_reward}}</text>
+    </view>
+    <view class="form_group">
+      <text>发布人联系方式：{{tulist.publisher_id}}</text>
+    </view>
+    <view class="form_group">
+      <text>备用tel：{{tulist.tempertel}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="form_group">
+      <text>任务地址</text>
+    </view>
+    <view class="form_group">
+      <text>省：</text>
+      <picker bindchange="bindProviPickerChange" value="{{tulist.proviIndex}}" range="{{address_province}}" name="proviIndex" disabled="disabled">
+        <view>{{address_province[tulist.proviIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form_group">
+      <text>市辖区：</text>
+      <picker bindchange="bindCityPickerChange" value="{{tulist.cityIndex}}" range="{{address_city}}" name="cityIndex"  disabled="disabled">
+        <view>{{address_city[tulist.cityIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form_group">
+      <text>前往地址：{{tulist.address_from}}</text>
+    </view>
+    <view class="form_group">
+      <text>送达地址：{{tulist.address_to}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="form_group">
+      <text>您的信息</text>
+    </view>
+    <view class="form_group"> 
+        <text>您的手机号码：{{tulist.user_id}}</text>
+    </view>
+    <block wx:if="{{tulist.user_name.length>0||tulist.identification.length>0||tulist.payee.length>0}}">
+      <view class="form_group">
+        <text>真实姓名：{{tulist.user_name}}</text>
+      </view>
+      <view class="form_group">
+        <text>身份证号：{{tulist.identification}}</text>
+      </view>
+      <view class="form_group">
+         <text>您的银行账号：{{tulist.payee}}</text>
+    </view>
+    <button  type="primary" form-type="submit" style='margin-right:5px;margin-left:5px'>下单</button>
+    </block>
+    <block wx:else>
+      <button bindtap="alterinfor" data-user_id="{{tulist.user_id}}" style='margin-right:5px;margin-left:5px'>点击进行实名认证</button>
+    </block>
+    <view class="image_content">
+      <view class='image' wx:for="{{img_url}}">
+        <image class="moment_img" src="{{tulist.coverpath}}"></image>
+      </view>
+      <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+        <image bindtap="chooseimage" class="moment_img" src='../../images/tab/footer-icon-03.png'></image>
+      </view>
+    </view>
+    
+  </form>
+</view>

@@ -1,0 +1,46 @@
+<view class="content">
+  <view class="bg">
+    <view class="head">
+      <view class="headIcon">
+        <view wx:if="{{item.avatar.length>0}}">
+          <image bindtap="changeAvatar" src="{{avatar}}" style="width:70px;height:70px;"></image>
+        </view>
+        <view class="head" wx:else>
+          <image bindtap="changeAvatar" src="/images/avatar/1.png" style="width:70px;height:70px;"></image>
+        </view>
+      </view>
+      <view class="login">
+        <view>昵称：{{user.nick_name}}</view>
+        <view class="account">账号：{{user.user_id}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="item" bindtap="user">
+    <view class="name">个人主页</view>
+    <view class="detail">
+      <text>></text>
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="item" bindtap="wait">
+    <view class="name">我的发布</view>
+    <view class="detail">
+      <text>></text>
+    </view>
+  </view>
+  <view class="line "></view>
+  <view class="item" bindtap="receive">
+    <view class="name">我的接单</view>
+    <view class="detail">
+      <text>></text>
+    </view>
+  </view>
+  <view class="hr "></view>
+  <view class="item " bindtap="logout ">
+    <view class="name ">退出登录</view>
+    <view class="detail ">
+    </view>
+  </view>
+  <view class="line "></view>
+</view>

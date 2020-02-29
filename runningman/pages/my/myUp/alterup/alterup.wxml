@@ -1,0 +1,73 @@
+<view class='container edit_wrap'>
+  <form bindsubmit="formSubmit" bindreset="formReset" data-task_id="{{tulist.task_id}}">
+    <view class="form_group">
+      <text>任务名称：</text>
+      <input type="text" placeholder-class="placeholder_style" name="task_name" placeholder="请添加任务名称" value="{{tulist.task_name}}" />
+    </view>
+    <text class="txt">任务描述</text>
+    <textarea name="task_content" value="{{tulist.task_content}}" placeholder="请描述任务" auto-height/>
+    <view class="line"></view>
+    <view class="form_group">
+      <text>酬金：￥</text>
+      <input type="text" placeholder-class="placeholder_style" name="task_reward" placeholder="请设置酬金" value="{{tulist.task_reward}}" />
+    </view>
+    <view class="form_group">
+      <text>联系电话：{{tulist.user_id}}</text>
+    </view>
+    <view class="form_group">
+      <text>备用tel：</text>
+      <input type="text" placeholder-class="placeholder_style" name="tempertel" placeholder="备用tel" value="{{tulist.tempertel}}" />
+    </view>
+    <view class="line"></view>
+    <view class="form_group">
+      <text>任务地址</text>
+    </view>
+    <view class="form_group">
+      <text>省：</text>
+      <picker bindchange="bindProviPickerChange" value="{{tulist.proviIndex}}" range="{{address_province}}" name="proviIndex">
+        <view>{{address_province[tulist.proviIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form_group">
+      <text>市辖区：</text>
+      <picker bindchange="bindCityPickerChange" value="{{tulist.cityIndex}}" range="{{address_city}}" name="cityIndex">
+        <view>{{address_city[tulist.cityIndex]}}</view>
+      </picker>
+    </view>
+    <view class="form_group">
+      <text>前往地址：</text>
+      <input type="text" placeholder="请输入预约地址" placeholder-class="placeholder_style" name="address_from" value="{{tulist.address_from}}" />
+    </view>
+    <view class="form_group">
+      <text>送达地址：</text>
+      <input type="text" placeholder="请输入预约地址" placeholder-class="placeholder_style" name="address_to" value="{{tulist.address_to}}" />
+    </view>
+    <view class="line"></view>
+    <view>
+      <view class="form_group">
+        <text>您的信息</text>
+      </view>
+
+      <view class="form_group">
+        <text>真实姓名：{{tulist.user_name}}</text>
+      </view>
+      <view class="form_group">
+        <text>身份证号：{{tulist.identification}}</text>
+      </view>
+    </view>
+    <view class="image_content">
+      <view class='image' wx:for="{{img_url}}">
+        <image class="moment_img" src="{{tulist.coverpath}}"></image>
+      </view>
+      <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+        <image bindtap="chooseimage" class="moment_img" src='../../images/tab/footer-icon-03.png'></image>
+      </view>
+    </view>
+    <view wx:if="{{tulist.state==1}}">
+      <button data-task_id="{{tulist.task_id}}" type="primary" form-type="submit" style='margin-right:5px;margin-left:5px'>重新发布</button>
+    </view>
+    <view wx:else>
+      <button data-task_id="{{tulist.task_id}}" type="primary" form-type="submit" style='margin-right:5px;margin-left:5px'>修改</button>
+    </view>
+  </form>
+</view>

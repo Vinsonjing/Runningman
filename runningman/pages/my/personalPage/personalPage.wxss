@@ -1,0 +1,32 @@
+.content{
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+}
+.line{
+  border:1px solid #cccccc;
+  opacity: 0.2;
+}
+.row text{
+  display: flex;
+  padding:10px;
+}
+.row{
+    display: flex;
+  flex-direction: row;
+  padding:10px;
+}
+.row input{
+    font-size: 16px;
+    flex-grow: 3;
+    box-shadow: 0 0 0.15rem #aaa;
+    padding: 0.3rem;
+}
+.row button{
+    padding: 0 2rem;
+    margin: 3rem 1rem;
+}

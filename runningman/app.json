@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/my/my",
+    "pages/posts/post",
+    "pages/register/register",
+    "pages/my/receive/receive",
+    "pages/my/myUp/myUp",
+    "pages/up/up",
+    "pages/my/myUp/alterup/alterup",
+    "pages/my/personalPage/personalPage",
+    "pages/my/user/user",
+    "pages/message/message",
+    "pages/posts/book/book",
+    "pages/identification/identification",
+    "pages/posts/post-detail/post-detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#405f80"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/posts/post",
+        "text": "首页",
+        "iconPath": "images/tab/ciwei.png",
+        "selectedIconPath": "images/tab/ciwei_hl.png"
+      },
+      {
+        "pagePath": "pages/up/up",
+        "text": "发布",
+        "iconPath": "images/tab/yuedu.png",
+        "selectedIconPath": "images/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/tab/dianying.png",
+        "selectedIconPath": "images/tab/dianying_hl.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tab/footer-icon-04.png",
+        "selectedIconPath": "images/tab/footer-icon-04-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

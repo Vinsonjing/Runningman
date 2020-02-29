@@ -1,0 +1,5 @@
+<view class="container">
+  <image class="user_avatar" src="{{src}}"></image>
+  <text class="user-name">{{name}}</text>
+  <button class="clickbutton" open-type="getUserInfo" bindgetuserinfo="getMyInfo">{{slogan}}</button>
+</view>

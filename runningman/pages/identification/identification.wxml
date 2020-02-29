@@ -1,0 +1,22 @@
+<view class="content">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item">
+      <view class="name">身份证号码：</view>
+      <input type="text" name="identification" placeholder="请输入身份证号码" value="{{user.identification}}" />
+    </view>
+    <view class="line"></view>
+    <view class="item">
+      <view class="name">真实姓名：</view>
+      <input type="text" name="user_name" placeholder="请输入真实姓名" value="{{user.user_name}}" />
+    </view>
+    <view class="line"></view>
+    <view class="item">
+      <view class="name">支付绑定：</view>
+      <input type="text" name="payee" placeholder="请输入支付宝号码" value="{{user.payee}}" />
+    </view>
+    <view class="line"></view>
+    <view class="row">
+      <button type="primary" form-type="submit">提交</button>
+    </view>
+  </form>
+</view>
